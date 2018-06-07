@@ -9,7 +9,12 @@ import manutencao.controller.Controlador;
  */
 public class Janela extends javax.swing.JFrame
 {
-        
+    
+    Controlador control = new Controlador();        ////////////////////////
+    FuncionariosPanel fpanel = new FuncionariosPanel(control);
+    ClientesPanel cpanel = new ClientesPanel(control);
+        PecasPanel ppanel = new PecasPanel(control);
+        PrincipalPanel mainpanel = new PrincipalPanel();
     ////////////////////////////////////////////////////////////////////////////    
     ////////////////////////////////////////////////////////////////////////////
     
@@ -25,9 +30,11 @@ public class Janela extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
+        ButtonFuncionarios = new javax.swing.JButton();
+        ButtonPecas = new javax.swing.JButton();
+        ButtonCliente = new javax.swing.JButton();
         AltMenu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -35,8 +42,31 @@ public class Janela extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UFF Manutenções 2018");
         setMinimumSize(new java.awt.Dimension(410, 330));
-        setResizable(false);
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
+
+        ButtonFuncionarios.setText("Funcionarios");
+        ButtonFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonFuncionariosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ButtonFuncionarios);
+
+        ButtonPecas.setText("Peças");
+        ButtonPecas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPecasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ButtonPecas);
+
+        ButtonCliente.setText("Clientes");
+        ButtonCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ButtonCliente);
 
         AltMenu.setName("AltMenu"); // NOI18N
 
@@ -50,6 +80,23 @@ public class Janela extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ButtonFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFuncionariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonFuncionariosActionPerformed
+
+    private void ButtonPecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPecasActionPerformed
+        // TODO add your handling code here:
+       
+        this.setContentPane(ppanel);
+        this.setVisible(true);
+    }//GEN-LAST:event_ButtonPecasActionPerformed
+
+    private void ButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClienteActionPerformed
+        // TODO add your handling code here:
+        this.setContentPane(cpanel);
+        this.setVisible(true);
+    }//GEN-LAST:event_ButtonClienteActionPerformed
     
     ////////////////////////////////////////////////////////////////////////////    
     ////////////////////////////////////////////////////////////////////////////
@@ -59,10 +106,7 @@ public class Janela extends javax.swing.JFrame
      */                                                 ////////////////////////
     public static void main(String args[])              ////////////////////////
     {                                                   ////////////////////////
-        Controlador control = new Controlador();        ////////////////////////
-        //FuncionariosPanel fpanel = new FuncionariosPanel(control);
-        PecasPanel ppanel = new PecasPanel(control);
-        PrincipalPanel mainpanel = new PrincipalPanel();////////////////////////
+        ////////////////////////
                                                         ////////////////////////
     ////////////////////////////////////////////////////////////////////////////    
     ////////////////////////////////////////////////////////////////////////////
@@ -109,12 +153,14 @@ public class Janela extends javax.swing.JFrame
                 //control.CadastrarFuncionario("1",3.12f,"Eduardo","Itaperuna","997537676");
                 
                 //fpanel.attLista();
-                ppanel.attLista();
+                //ppanel.attLista();
+                //cpanel.attLista();
                 
                 Janela janela = new Janela();
                 
                 //janela.setContentPane(fpanel);
-                janela.setContentPane(ppanel);
+                //janela.setContentPane(ppanel);
+                //janela.setContentPane(cpanel);
                 
                 janela.setVisible(true);
 
@@ -128,6 +174,9 @@ public class Janela extends javax.swing.JFrame
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar AltMenu;
+    private javax.swing.JButton ButtonCliente;
+    private javax.swing.JButton ButtonFuncionarios;
+    private javax.swing.JButton ButtonPecas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     // End of variables declaration//GEN-END:variables

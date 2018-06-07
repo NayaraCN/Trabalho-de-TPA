@@ -26,7 +26,6 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[410, 330]"/>
     </Property>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="AltMenu"/>
@@ -50,4 +49,30 @@
     <Property name="columns" type="int" value="0"/>
     <Property name="rows" type="int" value="1"/>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="ButtonFuncionarios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Funcionarios"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonFuncionariosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonPecas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pe&#xe7;as"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonPecasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Clientes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonClienteActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>

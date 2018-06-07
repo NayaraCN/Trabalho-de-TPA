@@ -25,6 +25,15 @@ public class Controlador
         return funcionarios;
     }  
     
+    public ArrayList<Pessoa> getClientesp()
+    {
+        return clientesp;
+    } 
+    public ArrayList<Empresa> getClientese()
+    {
+        return clientese;
+    } 
+
     public ArrayList<Peca> getPeca() 
     {
         return pecas;
@@ -56,26 +65,150 @@ public class Controlador
     {
         for(int i=0;i<clientesp.size();i++)
         {
-            if(clientesp.get(i).getCpf().compareTo(cpf)!=0)
+            if(clientesp.get(i).getCpf().compareTo(cpf)==0)
             {
-                return false;
+                return true;
             }
         }
         
-        return true;
+        return false;
     }
+    
     
     public boolean BuscaCNPJ(String cnpj)
     {
         for(int i=0;i<clientese.size();i++)
         {
-            if(clientese.get(i).getCnpj().compareTo(cnpj)!=0)
+            if(clientese.get(i).getCnpj().compareTo(cnpj)==0)
             {
-                return false;
+                return true;
             }
         }
         
-        return true;
+        return false;
+    }
+    public Pessoa getClienteP(String cpf)
+    {
+        for(int i=0;i<clientesp.size();i++)
+        {
+            if(clientesp.get(i).getCpf().compareTo(cpf)==0)
+            {
+                return getClientesp().get(i);
+            }
+        }
+        return null;
+    }
+    
+    public String getNomeClienteP(String cpf)
+    {
+        for(int i=0;i<clientesp.size();i++)
+        {
+            if(clientesp.get(i).getCpf().compareTo(cpf)==0)
+            {
+                return getClientesp().get(i).getNome();
+            }
+        }
+        return null;
+    }
+    
+    public String getEndClienteP(String cpf)
+    {
+        for(int i=0;i<clientesp.size();i++)
+        {
+            if(clientesp.get(i).getCpf().compareTo(cpf)==0)
+            {
+                return getClientesp().get(i).getEndereco();
+            }
+        }
+        return null;
+    }
+    public String getTelClienteP(String cpf)
+    {
+        for(int i=0;i<clientesp.size();i++)
+        {
+            if(clientesp.get(i).getCpf().compareTo(cpf)==0)
+            {
+                return getClientesp().get(i).getTelefone();
+            }
+        }
+        return null;
+    }
+    public String getEmailClienteP(String cpf)
+    {
+        for(int i=0;i<clientesp.size();i++)
+        {
+            if(clientesp.get(i).getCpf().compareTo(cpf)==0)
+            {
+                return getClientesp().get(i).getEmail();
+            }
+        }
+        return null;
+    }
+    public Empresa getClienteE(String cnpj)
+    {
+        for(int i=0;i<clientese.size();i++)
+        {
+            if(clientese.get(i).getCnpj().compareTo(cnpj)==0)
+            {
+                return getClientese().get(i);
+            }
+        }
+        return null;
+    }
+    public String getNomeClienteE(String cnpj)
+    {
+        for(int i=0;i<clientese.size();i++)
+        {
+            if(clientese.get(i).getCnpj().compareTo(cnpj)==0)
+            {
+                return getClientese().get(i).getNome();
+            }
+        }
+        return null;
+    }
+    public String getEndClienteE(String cnpj)
+    {
+        for(int i=0;i<clientese.size();i++)
+        {
+            if(clientese.get(i).getCnpj().compareTo(cnpj)==0)
+            {
+                return getClientese().get(i).getEndereco();
+            }
+        }
+        return null;
+    }
+    public String getTelClienteE(String cnpj)
+    {
+        for(int i=0;i<clientese.size();i++)
+        {
+            if(clientese.get(i).getCnpj().compareTo(cnpj)==0)
+            {
+                return getClientese().get(i).getTelefone();
+            }
+        }
+        return null;
+    }
+    public String getEmailClienteE(String cnpj)
+    {
+        for(int i=0;i<clientese.size();i++)
+        {
+            if(clientese.get(i).getCnpj().compareTo(cnpj)==0)
+            {
+                return getClientese().get(i).getEmail();
+            }
+        }
+        return null;
+    }
+    public String getContatoClienteE(String cnpj)
+    {
+        for(int i=0;i<clientese.size();i++)
+        {
+            if(clientese.get(i).getCnpj().compareTo(cnpj)==0)
+            {
+                return getClientese().get(i).getContato();
+            }
+        }
+        return null;
     }
     
     public boolean CadastrarFuncionario(String matricula, float salario, String nome, String endereco, String telefone)
@@ -116,13 +249,31 @@ public class Controlador
         funcionarios.remove(f);
     }
     
-    public void CadastrarPessoa(String cpf, String email, String nome, String endereco, String telefone)
+    
+    
+    public boolean CadastrarPessoa(String cpf, String email, String nome, String endereco, String telefone)
     {
-        if(BuscaCPF(cpf))
+        if(!BuscaCPF(cpf))
         {
             Pessoa p = new Pessoa(cpf,email,nome,endereco,telefone);
             clientesp.add(p);
+            
+            return true;
         }
+        
+        return false;
+    }
+    public boolean CadastrarPessoa(Pessoa p)
+    {
+        if(!BuscaCPF(p.getCpf()))
+        {
+            Pessoa g = p;
+            clientesp.add(p);
+            
+            return true;
+        }
+        
+        return false;
     }
     
     public void AlterarPessoa(Pessoa p, String email, String endereco, String telefone)
@@ -137,15 +288,30 @@ public class Controlador
         clientesp.remove(p);
     }
     
-    public void CadastrarEmpresa(String cnpj, String contato, String email, String nome, String endereco, String telefone)
+    public boolean CadastrarEmpresa(String cnpj, String contato, String email, String nome, String endereco, String telefone)
     {
-        if(BuscaCNPJ(cnpj))
+        if(!BuscaCNPJ(cnpj))
         {
-            Empresa e = new Empresa(cnpj, contato, email, nome, endereco, telefone);
+            Empresa e = new Empresa(cnpj,contato,email,nome,endereco,telefone);
             clientese.add(e);
+            
+            return true;
         }
+        
+        return false;
     }
-    
+    public boolean CadastrarEmpresa(Empresa e)
+    {
+        if(!BuscaCNPJ(e.getCnpj()))
+        {
+            Empresa g = e;
+            clientese.add(e);
+            
+            return true;
+        }
+        
+        return false;
+    }
     public void AlterarEmpresa(Empresa e, String contato, String email, String endereco, String telefone)
     {
        e.setContato(contato);

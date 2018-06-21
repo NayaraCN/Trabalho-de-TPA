@@ -19,17 +19,15 @@ public class PecasPanel extends javax.swing.JPanel {
     private Controlador control;
     
     DefaultListModel listModel = new DefaultListModel();
-            
-    public void attLista() {
-        /*listModel.clear();
-                       
-        for(int i = 0; i < control.getPeca().size(); i++) 
+   
+    public void attLista()
+    {
+        listModel.clear();
+        
+        for(int i = 0; i < control.getPecas().size(); i++) 
         {
-            //listModel.addElement(control.getPeca().get(i).getCodigo());
-            //listModel.addElement(control.getPeca().get(i).getNome());
-            //listModel.addElement(control.getPeca().get(i).getPreco());
-            //listModel.addElement(control.getPeca().get(i).getValor());
-        }*/
+            listModel.addElement(control.getPecas().get(i).getNome());
+        }
         
     }
      /**
@@ -50,22 +48,33 @@ public class PecasPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         BotaoCadastrar = new javax.swing.JButton();
-        CodigoLabel = new javax.swing.JLabel();
-        TextoCodigo = new javax.swing.JTextField();
-        NomeLabel = new javax.swing.JLabel();
-        TextoNome = new javax.swing.JTextField();
-        PrecoLabel = new javax.swing.JLabel();
-        TextoPreco = new javax.swing.JTextField();
-        ValorLabel = new javax.swing.JLabel();
-        TextoValor = new javax.swing.JTextField();
         BotaoAlterar = new javax.swing.JButton();
+        BotaoSalvar = new javax.swing.JButton();
         BotaoLimpar = new javax.swing.JButton();
         BotaoExcluir = new javax.swing.JButton();
-        ScrollPanelPecas = new javax.swing.JScrollPane();
-        ListaPeca = new javax.swing.JList<>();
+        ScrollPanelClientesp = new javax.swing.JScrollPane();
+        ListaPeças = new javax.swing.JList<>();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaPeca = new javax.swing.JTable();
+        TextoCodigo = new javax.swing.JTextPane();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TextoNome = new javax.swing.JTextPane();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TextoPreço = new javax.swing.JTextPane();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TextoValor = new javax.swing.JTextPane();
+
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(400, 300));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(0, 0));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 300));
 
         BotaoCadastrar.setText("Cadastrar");
         BotaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,18 +83,17 @@ public class PecasPanel extends javax.swing.JPanel {
             }
         });
 
-        CodigoLabel.setText("Código: ");
-
-        NomeLabel.setText("Nome: ");
-
-        PrecoLabel.setText("Preço R$: ");
-
-        ValorLabel.setText("Valor R$: ");
-
         BotaoAlterar.setText("Alterar");
         BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoAlterarActionPerformed(evt);
+            }
+        });
+
+        BotaoSalvar.setText("Salvar");
+        BotaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoSalvarActionPerformed(evt);
             }
         });
 
@@ -97,275 +105,273 @@ public class PecasPanel extends javax.swing.JPanel {
         });
 
         BotaoExcluir.setText("Excluir");
-        BotaoExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotaoExcluirMouseClicked(evt);
+        BotaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoExcluirActionPerformed(evt);
             }
         });
 
-        ListaPeca.setModel(listModel);
-        ListaPeca.addFocusListener(new java.awt.event.FocusAdapter() {
+        ListaPeças.setModel(listModel);
+        ListaPeças.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ListaPecaFocusGained(evt);
+                ListaPeçasFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ListaPecaFocusLost(evt);
+                ListaPeçasFocusLost(evt);
             }
         });
-        ListaPeca.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListaPecaMouseClicked(evt);
-            }
-        });
-        ListaPeca.addComponentListener(new java.awt.event.ComponentAdapter() {
+        ListaPeças.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                ListaPecaComponentShown(evt);
+                ListaPeçasComponentShown(evt);
             }
         });
-        ScrollPanelPecas.setViewportView(ListaPeca);
+        ScrollPanelClientesp.setViewportView(ListaPeças);
 
-        TabelaPeca.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Nome", "Preco", "Valor"
-            }
-        ));
-        TabelaPeca.setColumnSelectionAllowed(false);
-        TabelaPeca.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                TabelaPecaComponentShown(evt);
+        jTextField1.setText("                                                                  Lista de Peças");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(TabelaPeca);
-        TabelaPeca.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (TabelaPeca.getColumnModel().getColumnCount() > 0) {
-            TabelaPeca.getColumnModel().getColumn(0).setHeaderValue("Codigo");
-            TabelaPeca.getColumnModel().getColumn(1).setHeaderValue("Nome");
-            TabelaPeca.getColumnModel().getColumn(2).setHeaderValue("Preco");
-            TabelaPeca.getColumnModel().getColumn(3).setHeaderValue("Valor");
-        }
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CodigoLabel)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jLabel1.setText("Codigo:");
+
+        jScrollPane1.setViewportView(TextoCodigo);
+
+        jLabel2.setText("Nome:");
+
+        jScrollPane2.setViewportView(TextoNome);
+
+        jLabel3.setText("Preço:");
+
+        jScrollPane3.setViewportView(TextoPreço);
+
+        jLabel4.setText("Valor:");
+
+        jScrollPane4.setViewportView(TextoValor);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BotaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotaoAlterar)
+                        .addGap(5, 5, 5)
+                        .addComponent(BotaoSalvar)
+                        .addGap(38, 38, 38)
+                        .addComponent(BotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ScrollPanelClientesp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(ScrollPanelPecas, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TextoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(NomeLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(TextoNome))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(PrecoLabel)
-                                        .addComponent(ValorLabel))
-                                    .addGap(10, 10, 10)
-                                    .addComponent(TextoPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(TextoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(BotaoCadastrar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(BotaoAlterar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(BotaoLimpar)
-                            .addGap(10, 10, 10)
-                            .addComponent(BotaoExcluir)))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane4)
+                                .addComponent(jScrollPane3)
+                                .addComponent(jScrollPane2)
+                                .addComponent(jScrollPane1)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BotaoAlterar, BotaoCadastrar, BotaoExcluir, BotaoLimpar});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CodigoLabel, NomeLabel, PrecoLabel, ValorLabel});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ScrollPanelPecas, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CodigoLabel)
-                    .addComponent(TextoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NomeLabel)
-                    .addComponent(TextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PrecoLabel)
-                    .addComponent(TextoPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ValorLabel)
-                    .addComponent(TextoValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ScrollPanelClientesp, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoCadastrar)
                     .addComponent(BotaoAlterar)
+                    .addComponent(BotaoSalvar)
                     .addComponent(BotaoLimpar)
                     .addComponent(BotaoExcluir))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {BotaoAlterar, BotaoCadastrar, BotaoExcluir, BotaoLimpar});
+        jTabbedPane1.addTab("Peças", jPanel1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
-        
-        DefaultTableModel tableModel = (DefaultTableModel) TabelaPeca.getModel();
-        
-        if((!"".equals(TextoCodigo.getText()))&&(!"".equals(TextoNome.getText()))&&(!"".equals(TextoPreco.getText()))&&(!"".equals(TextoValor.getText())))
+    private void BotaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirActionPerformed
+        // TODO add your handling code here:
+        if(control.BuscaCODIGO(TextoCodigo.getText()))
         {
-            if(control.CadastrarPeca(TextoCodigo.getText().trim(),TextoNome.getText().trim(),Float.parseFloat(TextoPreco.getText().trim()),Float.parseFloat(TextoValor.getText().trim())))
-            {
-                //attLista();
-                tableModel.addRow(new Object[]{TextoCodigo.getText().trim(),TextoNome.getText().trim(),Float.parseFloat(TextoPreco.getText().trim()),Float.parseFloat(TextoValor.getText().trim())});
-            }
-            
-            else
-            
-            {
-                //System.out.println("Erro ao cadastrar peca");
-                JOptionPane.showMessageDialog(null,"Erro ao cadastrar");
-            }
+            control.ExcluirPeca(control.getPeca(TextoCodigo.getText()));
+            listModel.removeElement(control.getNomePecas((TextoCodigo.getText())));
+            attLista();
+            JOptionPane.showMessageDialog(null,"Excluido com Sucesso!");
         }
-        else 
-            JOptionPane.showMessageDialog(null,"Preencha os campos");
-    }//GEN-LAST:event_BotaoCadastrarActionPerformed
-
-    private void ListaPecaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ListaPecaComponentShown
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaPecaComponentShown
-
-    private void ListaPecaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ListaPecaFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaPecaFocusGained
-
-    private void ListaPecaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ListaPecaFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaPecaFocusLost
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Não existe Peças com esse CODIGO");
+        }
+        TextoCodigo.setText("");
+    }//GEN-LAST:event_BotaoExcluirActionPerformed
 
     private void BotaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparActionPerformed
-        //limpa todos os campos não caso nada tenha sido selecionado 
-        if (TextoCodigo.getSelectedText()== null && TextoNome.getSelectedText() == null && TextoPreco.getSelectedText() == null && TextoValor.getSelectedText() == null){
-            TextoCodigo.setText("");
-            TextoNome.setText("");
-            TextoPreco.setText("");
-            TextoValor.setText("");
-        }//limpa campo selecionado 
-        else if (TextoCodigo.getText() == null ? TextoCodigo.getSelectedText() == null : TextoCodigo.getText().equals(TextoCodigo.getSelectedText()))
-            TextoCodigo.setText("");
-        else if (TextoNome.getText() == null ? TextoNome.getSelectedText() == null : TextoNome.getText().equals(TextoNome.getSelectedText()))
-            TextoNome.setText("");
-        else if (TextoPreco.getText() == null ? TextoPreco.getSelectedText() == null : TextoPreco.getText().equals(TextoPreco.getSelectedText()))
-            TextoPreco.setText("");
-        else if (TextoValor.getText() == null ? TextoValor.getSelectedText() == null : TextoValor.getText().equals(TextoValor.getSelectedText()))    
-            TextoValor.setText("");
+        // TODO add your handling code here:
+        TextoCodigo.setText("");
+        TextoNome.setText("");
+        TextoPreço.setText("");
+        TextoValor.setText("");
     }//GEN-LAST:event_BotaoLimparActionPerformed
-    
-    private void excluirCadastrado(){
-        //int pos = ListaPeca.getSelectedIndex();
-        int pos = TabelaPeca.getSelectedRow();
-        
-        if (pos == -1){
-            //System.out.println("Selecione para excluir");
-            JOptionPane.showMessageDialog(null,"Selecione para excluir");
-        }
-        else {
-            
-            DefaultTableModel tableModel = (DefaultTableModel) TabelaPeca.getModel();
-            //control.getPeca().remove(pos);
-            tableModel.removeRow(pos);
-            //attLista();
-        }
-    }
-    
-    private void BotaoExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotaoExcluirMouseClicked
-        // ao clicar o botão excluir remove ou não o elemento da posição capturada 
-        
-        //if (ListaPeca.getFirstVisibleIndex() == -1)
-        if (TabelaPeca.getRowCount() == 0)
-            //mensagem para quando a lista estiver vazia
-            JOptionPane.showMessageDialog(null,"Nenumha peça cadastrada");
-        else 
-            excluirCadastrado();
-    }//GEN-LAST:event_BotaoExcluirMouseClicked
 
-    private void ListaPecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaPecaMouseClicked
-        //Não faz nada 
-        //Peca selectPeca;
-        //selectPeca = (Peca)ListaPeca.getSelectedValue();
-        /*int pos = ListaPeca.getSelectedIndex();
-        if(pos == -1){
-            System.out.println("Estou aqui ");
+    private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
+        // TODO add your handling code here:
+        TextoCodigo.setEnabled(true);
+        TextoNome.setEnabled(true);
+        if((!"".equals(TextoNome.getText()))&&(!"".equals(TextoCodigo.getText()))&&(!"".equals(TextoPreço.getText()))&&(!"".equals(TextoValor.getText())))
+        {
+            control.AlterarPeca(control.getPeca(TextoCodigo.getText()),Float.parseFloat(TextoValor.getText()));
+            JOptionPane.showMessageDialog(null,"Alterado com Sucesso!");
         }
-        else if(MouseEvent.BUTTON1 == evt.getButton()){
-                System.out.println("Estou aqui 56 "+pos);
-        }*/                
-    }//GEN-LAST:event_ListaPecaMouseClicked
-    
-    private void alterarCadastrado(){
-        //int pos = ListaPeca.getSelectedIndex();
-        int pos = TabelaPeca.getSelectedRow();
-        
-        if (pos == -1){
-            //System.out.println("Selecione peca para alterar");
-            JOptionPane.showMessageDialog(null,"Selecione a peca que deseja alterar");
-        }
-        else {
-            //altera o valor da primeira posição, mas ta dando problema se não for a primeira posição
-            //control.getPeca().get(pos).setValor(Float.parseFloat(TextoValor.getText()));
-            TabelaPeca.setValueAt(Float.parseFloat(TextoValor.getText()), pos, 3);
-            //attLista();
-        }
-    }
-    
+        else
+        JOptionPane.showMessageDialog(null,"Não foi possivel alterar pois há campos vazios!");
+
+        TextoCodigo.setText("");
+        TextoNome.setText("");
+        TextoPreço.setText("");
+        TextoValor.setText("");
+    }//GEN-LAST:event_BotaoSalvarActionPerformed
+
     private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
-        //if (ListaPeca.getFirstVisibleIndex() == -1)
-        if (TabelaPeca.getRowCount() == 0)
-            //mensagem para quando a lista estiver vazia
-            JOptionPane.showMessageDialog(null,"Nenumha peça cadastrada");             
-        else 
-            alterarCadastrado();
+        // TODO add your handling code here:
+        if(control.BuscaCODIGO(TextoCodigo.getText()))
+        {
+            TextoCodigo.setEnabled(false);
+            TextoNome.setEnabled(false);
+            TextoNome.setText(control.getNomePecas(TextoCodigo.getText()));
+            TextoPreço.setText(String.valueOf(control.getPrecoPecas(TextoCodigo.getText())));
+            TextoValor.setText(String.valueOf(control.getValorPecas(TextoCodigo.getText())));
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Não existe Peças com esse CODIGO");
+        }
     }//GEN-LAST:event_BotaoAlterarActionPerformed
 
-    private void TabelaPecaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_TabelaPecaComponentShown
+    private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TabelaPecaComponentShown
+        if((!"".equals(TextoCodigo.getText()))&&(!"".equals(TextoNome.getText()))&&(!"".equals(TextoPreço.getText()))&&(!"".equals(TextoValor.getText())))
+        {
+            if(control.CadastrarPeca(TextoCodigo.getText( ),TextoNome.getText(),Float.parseFloat(TextoPreço.getText()),Float.parseFloat(TextoValor.getText())))
+            {
+                attLista();
+                JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+            }
+            else
+            {
+                System.out.println("Erro ao cadastrar");
+                JOptionPane.showMessageDialog(null,"Ja existe Peça com esse CODIGO");
+            }
+        }
+        else
+        JOptionPane.showMessageDialog(null,"Não foi possivel Cadastar, pois há campos vazios!");
 
+        TextoCodigo.setText("");
+        TextoNome.setText("");
+        TextoPreço.setText("");
+        TextoValor.setText("");
+    }//GEN-LAST:event_BotaoCadastrarActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void ListaPeçasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ListaPeçasComponentShown
+        /*TextoMatricula.setText(control.getFuncionarios().get(1).getMatricula());
+        //TextoSalario.setText(control.getFuncionarios().get(1).getSalario());
+        TextoNome.setText(control.getFuncionarios().get(1).getNome());
+        TextoEndereco.setText(control.getFuncionarios().get(1).getEndereco());
+        TextoTelefone.setText(control.getFuncionarios().get(1).getTelefone());*/
+    }//GEN-LAST:event_ListaPeçasComponentShown
+
+    private void ListaPeçasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ListaPeçasFocusLost
+        /*TextoMatricula.setText("");
+        TextoSalario.setText("");
+        TextoNome.setText("");
+        TextoEndereco.setText("");
+        TextoTelefone.setText("");*/
+    }//GEN-LAST:event_ListaPeçasFocusLost
+
+    private void ListaPeçasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ListaPeçasFocusGained
+        /*if(control.getFuncionarios()!=null)
+        {
+            TextoMatricula.setText(control.getFuncionarios().get(0).getMatricula());
+            //TextoSalario.setText(control.getFuncionarios().get(1).getSalario());
+            TextoNome.setText(control.getFuncionarios().get(0).getNome());
+            TextoEndereco.setText(control.getFuncionarios().get(0).getEndereco());
+            TextoTelefone.setText(control.getFuncionarios().get(0).getTelefone());
+        }*/
+    }//GEN-LAST:event_ListaPeçasFocusGained
+    
+    
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoAlterar;
     private javax.swing.JButton BotaoCadastrar;
     private javax.swing.JButton BotaoExcluir;
     private javax.swing.JButton BotaoLimpar;
-    private javax.swing.JLabel CodigoLabel;
-    private javax.swing.JList<Peca> ListaPeca;
-    private javax.swing.JLabel NomeLabel;
-    private javax.swing.JLabel PrecoLabel;
-    private javax.swing.JScrollPane ScrollPanelPecas;
-    private javax.swing.JTable TabelaPeca;
-    private javax.swing.JTextField TextoCodigo;
-    private javax.swing.JTextField TextoNome;
-    private javax.swing.JTextField TextoPreco;
-    private javax.swing.JTextField TextoValor;
-    private javax.swing.JLabel ValorLabel;
+    private javax.swing.JButton BotaoSalvar;
+    private javax.swing.JList<Peca> ListaPeças;
+    private javax.swing.JScrollPane ScrollPanelClientesp;
+    private javax.swing.JTextPane TextoCodigo;
+    private javax.swing.JTextPane TextoNome;
+    private javax.swing.JTextPane TextoPreço;
+    private javax.swing.JTextPane TextoValor;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

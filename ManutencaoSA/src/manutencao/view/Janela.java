@@ -7,7 +7,7 @@ import manutencao.controller.Controlador;
 //import manutencao.view.FuncionariosPanel;
 import manutencao.view.PrincipalPanel;
 /*
- * @author Daniel, Nayara, 
+ * @author Daniel, Nayara, Sthefany 
  */
 public class Janela extends javax.swing.JFrame
 {
@@ -18,8 +18,7 @@ public class Janela extends javax.swing.JFrame
     FuncionarioPanel fpanel = new FuncionarioPanel(control);
     PrincipalPanel mainpanel = new PrincipalPanel();
     //Janela janela1;
-     
-       
+           
     public Janela()
     {
         initComponents();
@@ -113,22 +112,17 @@ public class Janela extends javax.swing.JFrame
     }//GEN-LAST:event_PeçaActionPerformed
 
     private void MenuVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuVoltarActionPerformed
-        //   adicionar ação/em construção       
+        //   adicionar ação, em construção       
         
     }//GEN-LAST:event_MenuVoltarActionPerformed
-    
-   
+       
     /**                                                 
      * @param args the command line arguments           
      */                                                 
     public static void main(String args[])              
-    {                                                   
-                    
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    {                          
+                   
+        
         try
         {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
@@ -156,32 +150,21 @@ public class Janela extends javax.swing.JFrame
         {
             java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
+        //Cria e exibe o formulário
         java.awt.EventQueue.invokeLater(new Runnable()
         {
             @Override
             public void run()
             {    
-               //control.CadastrarPessoa("12","Edu","Eduardo","Itaperuna","997537676");
-                
-                //cpanel.attLista();
-                
                 Janela janela = new Janela();
                 janela.setVisible(true);
                // janela.setContentPane(fpanel);
-                
-                
-
-                
+                          
             }
         });
     }
 
-    ////////////////////////////////////////////////////////////////////////////    
-    ////////////////////////////////////////////////////////////////////////////
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar AltMenu;
     private javax.swing.JButton Cliente;
